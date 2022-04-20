@@ -1,22 +1,25 @@
 <template>
   <v-container>
     <v-row>
-      <v-col id="publisher-text1">
+      <v-col id="publisher-text1" >
         <div id="year-text">
           {{ year }}
         </div>
         <v-card id="publisher-text" class="mt-10" outlined color="transparent">
           {{ authors_td }}
         </v-card>
-          number of authors translated so far
+        number of authors translated so far
         <v-card id="author-text" class="mt-5" outlined color="transparent">
           {{ titles_td }}
         </v-card>
         number of books translated so far
       </v-col>
       <v-col>
+      <Map/>
+      </v-col>
+      <v-col style="width: 20vh">
         <v-container>
-          <v-row style="height: 60vh">
+          <v-row style="height: 100vh">
             <template v-for="(n, i) in year_titles">
               <v-col :key="i">
                 <v-tooltip top>
@@ -75,11 +78,7 @@
                   </v-card>
                 </v-tooltip>
               </v-col>
-              <v-responsive
-                v-if="n === 8"
-                :key="`width-${n}`"
-                width="40%"
-              ></v-responsive>
+             
             </template>
           </v-row>
           <v-col>
@@ -94,6 +93,7 @@
 <script>
 // import titles_data from "../../public/titles_new.csv";
 import * as d3 from "d3";
+import Map from "./Map.vue"
 import titles from "../../public/titles_new.csv";
 
 export default {
@@ -106,8 +106,7 @@ export default {
     };
   },
 
-  components: {
-  },
+  components: {Map},
 
   async created() {
     this.titles = await d3.csv(titles);

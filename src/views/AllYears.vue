@@ -57,6 +57,7 @@ export default {
   async created() {
     this.titles = await d3.csv(titles);
     this.getDistinctYear();
+    this.getTitles()
   },
   mounted() {
     console.log(this.year_now);
