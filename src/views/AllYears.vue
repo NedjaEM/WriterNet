@@ -2,8 +2,8 @@
   <v-container>
     <v-row class="mb-4">
       <v-card id="nav" class="mb-4">
-        <v-tabs dark background-color="#79597b darken-3" show-arrows>
-          <v-tabs-slider color="#79597b lighten-3"></v-tabs-slider>
+        <v-tabs background-color="#79597b" color="#fdf6f0" show-arrows>
+          <v-tabs-slider color="#fdf6f0"></v-tabs-slider>
 
           <v-tab
             v-for="i in years"
@@ -27,6 +27,7 @@
         :year_titles="titles_year"
         :authors_td="authors_td"
         :titles_td="titles_td"
+        :past_year_titles="past_year_titles"
       />
     </v-row>
   </v-container>
@@ -47,6 +48,7 @@ export default {
     return {
       year_now: 1983,
       titles_year: [],
+      past_year_titles: [],
       titles,
       years: [],
       authors_td: 1,
@@ -57,7 +59,7 @@ export default {
   async created() {
     this.titles = await d3.csv(titles);
     this.getDistinctYear();
-    this.getTitles()
+    this.getTitles();
   },
   mounted() {
     console.log(this.year_now);
@@ -65,10 +67,16 @@ export default {
   methods: {
     getTitles: function () {
       this.titles_year = [];
+      this.past_year_titles = [];
       this.titles.forEach((element) => {
         if (element["Publication Year"] == this.year_now) {
           this.titles_year.push(element);
-          console.log(element["Publication Year"]);
+        }
+      });
+
+      this.titles.forEach((element) => {
+        if (element["Publication Year"] <= this.year_now) {
+          this.past_year_titles.push(element);
         }
       });
     },
@@ -99,7 +107,7 @@ export default {
         if (element["Publication Year"] <= i) {
           this.titles_td = this.titles_td + 1;
         }
-        console.log(this.titles_td);
+        // console.log(this.titles_td);
       });
     },
   },
@@ -107,6 +115,5 @@ export default {
 </script>
 
 <style>
-#nav {
-}
+
 </style>

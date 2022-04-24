@@ -102,7 +102,7 @@
           <v-container>
             <v-row style="height: 60vh">
               <template v-for="(n, i) in books">
-                <v-col :key="i">
+                <v-col :key="i" cols="auto">
                   <v-tooltip top>
                     <template v-slot:activator="{ on }">
                       <v-img
@@ -331,15 +331,15 @@ export default {
       update();
     });
 
-    filter("Judgment Day");
+    // filter("Judgment Day");
 
-    function filter(book_name) {
-      console.log(book_name);
+    // function filter(book_name) {
+    //   console.log(book_name);
 
-      data.links.filter(data.links.edge == book_name);
-      // data.nodes.filter(node)
+    //   data.links.filter(data.links.edge == book_name);
+    //   // data.nodes.filter(node)
 
-      console.log(data.links);
+    //   console.log(data.links);
 
       //   if (d) {
       //     n.filtered = false;
@@ -353,7 +353,7 @@ export default {
       //     });
       //   }
       // });
-    }
+    // }
 
     function dragsubject(event) {
       var p = d3.pointer(event);

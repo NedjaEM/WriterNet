@@ -1,5 +1,5 @@
 <template>
-  <svg id="my_map" width="300" height="300"></svg>
+  <svg id="my_map" width="300" height="400"></svg>
 </template>
 
 <script>
@@ -43,7 +43,7 @@ export default {
 
       // Map and projection
       var projection = d3
-        .geoNaturalEarth1()
+        .geoMercator()
         .scale(width / 1.3 / Math.PI)
         .translate([width / 2, height / 2]);
 
@@ -61,7 +61,7 @@ export default {
           .data(data.features)
           .enter()
           .append("path")
-          .attr("fill", "white")
+          .attr("fill", "#fdf6f0")
           .attr("d", d3.geoPath().projection(projection))
           .style("stroke", "black");
       });

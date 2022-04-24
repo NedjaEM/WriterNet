@@ -1,27 +1,24 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col id="publisher-text1" >
-        <div id="year-text">
+  <v-container class="mx-0 px-0" fluid>
+    <v-row class="ma-0 pa-0" no-gutters>
+      <v-col id="publisher-text1" class="pa-n10" style="max-width: 18%">
+        <div id="year-text" style="pa-n10">
           {{ year }}
         </div>
         <v-card id="publisher-text" class="mt-10" outlined color="transparent">
           {{ authors_td }}
         </v-card>
-        number of authors translated so far
+        authors translated so far
         <v-card id="author-text" class="mt-5" outlined color="transparent">
           {{ titles_td }}
         </v-card>
-        number of books translated so far
+        books translated so far
       </v-col>
-      <v-col>
-      <Map/>
-      </v-col>
-      <v-col style="width: 20vh">
+      <v-col class="ml-0 pl-0">
         <v-container>
           <v-row style="height: 100vh">
             <template v-for="(n, i) in year_titles">
-              <v-col :key="i">
+              <v-col :key="i" cols="auto">
                 <v-tooltip top>
                   <template v-slot:activator="{ on }">
                     <v-img
@@ -78,7 +75,6 @@
                   </v-card>
                 </v-tooltip>
               </v-col>
-             
             </template>
           </v-row>
           <v-col>
@@ -86,18 +82,91 @@
           </v-col>
         </v-container>
       </v-col>
+      <v-col>
+        <div style="pa-n10; font-size: 25px; color: #79597b;">
+          Where were they published
+        </div>
+        <v-row>
+          <v-col style="max-width: 10%"> US </v-col>
+          <v-col>
+            <v-row>
+              <template v-for="(n, i) in past_year_titles">
+                <template v-if="n.Place == 'US - New York'">
+                  <v-col :key="i" cols="auto">
+                    <v-tooltip top>
+                      <template v-slot:activator="{ on }">
+                        <v-icon slot="activator" v-on="on">
+                          mdi-book-open-variant
+                        </v-icon>
+                      </template>
+                      <span> tooltip </span>
+                    </v-tooltip>
+                  </v-col>
+                </template>
+              </template>
+            </v-row>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col style="max-width: 10%"> UK </v-col>
+          <v-col>
+            <v-row>
+              <template v-for="(n, i) in past_year_titles">
+                <template v-if="n.Place == 'UK - London'">
+                  <v-col :key="i" cols="auto">
+                    <v-tooltip top>
+                      <template v-slot:activator="{ on }">
+                        <v-icon slot="activator" v-on="on">
+                          mdi-book-open-variant
+                        </v-icon>
+                      </template>
+                      <span> tooltip </span>
+                    </v-tooltip>
+                  </v-col>
+                </template>
+              </template>
+            </v-row>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col style="max-width: 10%"> Egypt </v-col>
+          <v-col>
+            <v-row>
+              <template v-for="(n, i) in past_year_titles">
+                <template v-if="n.Place == 'Egypt - Cairo'">
+                  <v-col :key="i" cols="auto">
+                    <v-tooltip top>
+                      <template v-slot:activator="{ on }">
+                        <v-icon slot="activator" v-on="on">
+                          mdi-book-open-variant
+                        </v-icon>
+                      </template>
+                      <span> tooltip </span>
+                    </v-tooltip>
+                  </v-col>
+                </template>
+              </template>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-// import titles_data from "../../public/titles_new.csv";
 import * as d3 from "d3";
-import Map from "./Map.vue"
 import titles from "../../public/titles_new.csv";
 
 export default {
-  props: ["year", "year_titles", "authors_td", "titles_td"],
+  props: ["year", "year_titles", "authors_td", "titles_td", "past_year_titles"],
+
+  watch: {
+    past_year_titles: function (newVal, oldVal) {
+      console.log("Prop changed: ", newVal, " | was: ", oldVal);
+    },
+  },
 
   data() {
     return {
@@ -106,16 +175,17 @@ export default {
     };
   },
 
-  components: {Map},
+  components: {
+   
+  },
 
   async created() {
     this.titles = await d3.csv(titles);
     this.getDistinctYear();
+    this.getUSBooks();
   },
 
-  mounted() {
-    console.log(this.year_titles);
-  },
+  mounted() {},
 
   methods: {
     getDistinctYear: function () {
@@ -127,31 +197,36 @@ export default {
       console.log(this.years);
       return this.years;
     },
+
+    getUSBooks: function () {
+      this.past_year_titles.forEach((element) => {
+        console.log(element);
+      });
+    },
+
+    getUKBooks: function () {},
   },
 };
 </script>
 
 <style scoped>
 #year-text {
-  font-size: 70px;
+  font-size: 50px;
   color: #79597b;
 }
 
 #publisher-text {
-  font-size: 70px;
+  font-size: 50px;
   color: #79597b;
-  margin-right: 10%;
 }
 
 #publisher-text1 {
   font-size: 15px;
   color: #79597b;
-  margin-right: 10%;
 }
 
 #author-text {
-  font-size: 70px;
+  font-size: 50px;
   color: #79597b;
-  margin-top: 100;
 }
 </style>
