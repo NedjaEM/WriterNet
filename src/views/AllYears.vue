@@ -1,11 +1,17 @@
 <template>
   <v-container>
-    <v-row class="mb-4">
-      <v-card id="nav" class="mb-4">
-        <v-tabs background-color="#79597b" color="#fdf6f0" show-arrows>
-          <v-tabs-slider color="#fdf6f0"></v-tabs-slider>
+    <v-row class="mb-4 mt-100">
+      <v-card id="nav" class="mb-4 mt-100">
+        <v-tabs
+          background-color="#e99f4c"
+          color="#fdf6f0"
+          class="active"
+          show-arrows
+        >
+          <v-tabs-slider color="#fdf6f0" ></v-tabs-slider>
 
           <v-tab
+            active-class="active"
             v-for="i in years"
             :key="i"
             :href="'#tab-' + i"
@@ -115,5 +121,8 @@ export default {
 </script>
 
 <style>
-
+.active {
+  font-size: 30px !important;
+  color: bisque;
+}
 </style>

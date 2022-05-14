@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color: #fdf6f0">
+  <v-app id="app">
     <v-main>
       <router-view />
     </v-main>
@@ -15,3 +15,12 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+  #app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f2ebe9
+  }
+</style>
