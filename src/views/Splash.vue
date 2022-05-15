@@ -79,7 +79,7 @@
         class="main__graphic"
         outlined
         color="transparent"
-        v-if="currStep === '6'"
+        v-if="currStep === '9'"
       >
         <v-col style="max-height = 100%;">
           <div

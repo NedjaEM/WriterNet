@@ -20,16 +20,28 @@
       </v-col>
       <v-col id="publisher-text1" class="pa-n10" style="max-width: 18%">
       </v-col>
+      <!-- <v-col>
+        <template v-for="(n, i) in events_year">
+          <v-col :key="i" cols="auto">
+            <v-card color="transparent">
+              {{ event }}
+            </v-card>
+          </v-col>
+        </template>
+      </v-col> -->
       <v-col>
         <template v-for="(n, i) in past_year_titles.slice().reverse()">
           <v-col :key="i" cols="auto">
             <v-card color="transparent">
-              <v-img
-                width="15vh"
-                height="20vh"
+               <v-img
+                width="20vh"
+                height="30vh"
                 color="gray"
                 :src="n['Book Cover']"
               ></v-img>
+              <v-card-subtitle>
+                {{ n.Abstract }}
+              </v-card-subtitle>
             </v-card>
           </v-col>
         </template>
@@ -44,7 +56,14 @@ import titles from "../../public/titles_new.csv";
 import events from "../../public/events.csv";
 
 export default {
-  props: ["year", "year_titles", "authors_td", "titles_td", "past_year_titles"],
+  props: [
+    "year",
+    "year_titles",
+    "authors_td",
+    "titles_td",
+    "past_year_titles",
+    "events_year",
+  ],
 
   watch: {
     year_titles: function (newVal, oldVal) {
@@ -66,9 +85,6 @@ export default {
   async created() {
     this.titles = await d3.csv(titles);
     this.getDistinctYear();
-
-    this.events = await d3.csv(events);
-    console.log(events);
   },
 
   mounted() {},
@@ -111,6 +127,4 @@ export default {
 .iconclicked {
   color: #79597b !important;
 }
-
-
 </style>
