@@ -20,6 +20,7 @@
               getTitles(i);
               getTitlesTD(i);
               getAuthorsTD(i);
+              getEvents(i);
             "
           >
             {{ i }}
@@ -83,18 +84,12 @@ export default {
     this.events = await d3.csv(events);
     this.getDistinctYear();
     this.getTitles();
+    this.getEvents();
   },
   mounted() {
     console.log(this.year_now);
   },
   methods: {
-    getEvents: function () {
-      this.events.forEach((element) => {
-        if (element["year"] == this.year_now) {
-          this.events_year.push(element);
-        }
-      });
-    },
     getTitles: function () {
       this.titles_year = [];
       this.past_year_titles = [];
@@ -138,6 +133,14 @@ export default {
           this.titles_td = this.titles_td + 1;
         }
         // console.log(this.titles_td);
+      });  
+    },
+    getEvents: function (i) {
+      this.events.forEach((element) => {
+        console.log(element)
+        if (element["year"] === i) {
+          this.events_year.push(element);
+        }
       });
     },
   },

@@ -20,15 +20,15 @@
       </v-col>
       <v-col id="publisher-text1" class="pa-n10" style="max-width: 18%">
       </v-col>
-      <!-- <v-col>
-        <template v-for="(n, i) in events_year">
+      <v-col style="max-width: 18%">
+        <template v-for="(n, i) in events_year.slice().reverse()">
           <v-col :key="i" cols="auto">
-            <v-card color="transparent">
-              {{ event }}
+            <v-card color="#e99f4c">
+              <v-card-subtitle>{{ n.event }}</v-card-subtitle>
             </v-card>
           </v-col>
         </template>
-      </v-col> -->
+      </v-col>
       <v-col>
         <template v-for="(n, i) in past_year_titles.slice().reverse()">
           <v-col :key="i" cols="auto">
@@ -53,7 +53,6 @@
 <script>
 import * as d3 from "d3";
 import titles from "../../public/titles_new.csv";
-import events from "../../public/events.csv";
 
 export default {
   props: [
@@ -62,7 +61,7 @@ export default {
     "authors_td",
     "titles_td",
     "past_year_titles",
-    "events_year",
+    "events_year"
   ],
 
   watch: {
@@ -76,7 +75,6 @@ export default {
     return {
       titles,
       years: [],
-      events,
     };
   },
 
