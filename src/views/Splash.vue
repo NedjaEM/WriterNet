@@ -81,7 +81,216 @@
         color="transparent"
         v-if="currStep === '6'"
       >
-        {{ currStep }}
+        <v-col style="max-height = 100%;">
+          <div
+            style=" font-size: 25px; color: #e99f4c; text-align: center"
+          >
+            Where were they published
+          </div>
+          <v-row>
+            <v-col style="max-width: 12%; font-size: 15px; color: #e99f4c; font-weight: bold">
+              US
+            </v-col>
+            <v-col>
+              <v-row>
+                <template v-for="(n, i) in titles">
+                  <template v-if="n.Place == 'US - New York'">
+                    <v-col :key="i" cols="auto">
+                      <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                          <v-hover v-slot="{ hover }" close-delay="100">
+                            <v-icon
+                              slot="activator"
+                              v-on="on"
+                              :class="hover ? 'iconclicked' : 'icon'"
+                              :id="'year' + n.Date"
+                            >
+                              mdi-book-open-variant
+                            </v-icon>
+                          </v-hover>
+                        </template>
+                        <v-card :key="i" class="pa-1" outlined tile dark>
+                          <v-card-title class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n["Date of Translation"] }}
+                            </span>
+                          </v-card-title>
+                          <v-card-subtitle class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n.Author }}
+                            </span>
+                          </v-card-subtitle>
+
+                          <v-list-item class="font-weight-light">
+                            <v-list-item-avatar size="100" class="mb-auto">
+                              <v-img :src="n['Author Image']"> </v-img>
+                            </v-list-item-avatar>
+
+                            <v-list-item-content>
+                              <div class="overline mb-4"></div>
+                              <v-list-item-title
+                                class="
+                                  headline
+                                  font-weight-light
+                                  mb-3
+                                  text-wrap
+                                "
+                                style="word-break: normal"
+                                >{{ n["Title"] }}</v-list-item-title
+                              >
+                              <v-list-item-title
+                                class="headline mb-1 text-wrap"
+                                style="word-break: normal"
+                                >{{ n["Title in Arabic"] }}</v-list-item-title
+                              >
+                              <div>{{ n["Abstract"] }}</div>
+
+                              <v-list-item
+                                >Publishing House:
+                                {{ n["Publisher"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Translator: {{ n["Translator"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Publication Date:
+                                {{ n["Publication Year"] }}</v-list-item
+                              >
+                            </v-list-item-content>
+                          </v-list-item>
+                        </v-card>
+                      </v-tooltip>
+                    </v-col>
+                  </template>
+                </template>
+              </v-row>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+              UK
+            </v-col>
+            <v-col>
+              <v-row>
+                <template v-for="(n, i) in titles">
+                  <template v-if="n.Place == 'UK - London'">
+                    <v-col :key="i" cols="auto">
+                      <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                          <v-hover v-slot="{ hover }" close-delay="100">
+                            <v-icon
+                              slot="activator"
+                              v-on="on"
+                              :class="hover ? 'iconclicked' : 'icon'"
+                            >
+                              mdi-book-open-variant
+                            </v-icon>
+                          </v-hover>
+                        </template>
+                        <v-card>
+                          {{ n.Author }}
+                        </v-card>
+                      </v-tooltip>
+                    </v-col>
+                  </template>
+                </template>
+              </v-row>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+              Egypt
+            </v-col>
+            <v-col>
+              <v-row>
+                <template v-for="(n, i) in titles">
+                  <template v-if="n.Place == 'Egypt - Cairo'">
+                    <v-col :key="i" cols="auto">
+                      <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                          <v-hover v-slot="{ hover }" close-delay="100">
+                            <v-icon
+                              slot="activator"
+                              v-on="on"
+                              :class="hover ? 'iconclicked' : 'icon'"
+                            >
+                              mdi-book-open-variant
+                            </v-icon>
+                          </v-hover>
+                        </template>
+                        <v-card>
+                          {{ n.Author }}
+                        </v-card>
+                      </v-tooltip>
+                    </v-col>
+                  </template>
+                </template>
+              </v-row>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+              Canada
+            </v-col>
+            <v-col>
+              <v-row>
+                <template v-for="(n, i) in titles">
+                  <template v-if="n.Place == 'Canada - Toronto'">
+                    <v-col :key="i" cols="auto">
+                      <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                          <v-hover v-slot="{ hover }" close-delay="100">
+                            <v-icon
+                              slot="activator"
+                              v-on="on"
+                              :class="hover ? 'iconclicked' : 'icon'"
+                            >
+                              mdi-book-open-variant
+                            </v-icon>
+                          </v-hover>
+                        </template>
+                        <v-card>
+                          {{ n.Author }}
+                        </v-card>
+                      </v-tooltip>
+                    </v-col>
+                  </template>
+                </template>
+              </v-row>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+              Qatar
+            </v-col>
+            <v-col>
+              <v-row>
+                <template v-for="(n, i) in titles">
+                  <template v-if="n.Place == 'Qatar - Doha'">
+                    <v-col :key="i" cols="auto">
+                      <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                          <v-hover v-slot="{ hover }" close-delay="100">
+                            <v-icon
+                              slot="activator"
+                              v-on="on"
+                              :class="hover ? 'iconclicked' : 'icon'"
+                            >
+                              mdi-book-open-variant
+                            </v-icon>
+                          </v-hover>
+                        </template>
+                        <v-card>
+                          {{ n.Author }}
+                        </v-card>
+                      </v-tooltip>
+                    </v-col>
+                  </template>
+                </template>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-col>
       </v-card>
 
       <v-card
@@ -184,7 +393,9 @@
       <v-container class="mx-0 px-0" fluid>
         <v-row class="ma-0 pa-0">
           <v-col class="mr-10">
-            <v-btn to="/network" width=100% color="#e99f4c">Network View </v-btn>
+            <v-btn to="/network" width="100%" color="#e99f4c"
+              >Network View
+            </v-btn>
             <v-img
               height="200px"
               width="200px"
@@ -195,7 +406,9 @@
           </v-col>
 
           <v-col class="mr-10">
-            <v-btn to="/time" width=100% color="#e99f4c">Chronological View </v-btn>
+            <v-btn to="/time" width="100%" color="#e99f4c"
+              >Chronological View
+            </v-btn>
             <v-img
               height="200px"
               width="200px"
@@ -205,13 +418,27 @@
             </v-img>
           </v-col>
           <v-col class="mr-10"
-            ><v-btn to="/sources" width=100% color="#e99f4c"> Sources and Inspirations </v-btn>
-            <v-img height="200px" width="200px" class="mx-auto" src="../../public/outro/4.png">
+            ><v-btn to="/sources" width="100%" color="#e99f4c">
+              Sources and Inspirations
+            </v-btn>
+            <v-img
+              height="200px"
+              width="200px"
+              class="mx-auto"
+              src="../../public/outro/4.png"
+            >
             </v-img>
           </v-col>
           <v-col class="mr-10"
-            ><v-btn  to="/resources" width=100% color="#e99f4c"> Resources and articles</v-btn>
-            <v-img height="200px" width="200px" class="mx-auto" src="../../public/outro/5.png">
+            ><v-btn to="/resources" width="100%" color="#e99f4c">
+              Resources and articles</v-btn
+            >
+            <v-img
+              height="200px"
+              width="200px"
+              class="mx-auto"
+              src="../../public/outro/5.png"
+            >
             </v-img
           ></v-col>
         </v-row>
@@ -223,6 +450,9 @@
 <script>
 import "intersection-observer";
 import Scrollama from "vue-scrollama";
+import titles from "../../public/titles_new.csv";
+import * as d3 from "d3";
+
 
 export default {
   name: "App",
@@ -232,10 +462,14 @@ export default {
   data() {
     return {
       currStep: null,
+      titles,
     };
   },
   mounted() {
     console.log(this.currStep);
+  },
+  async created() {
+    this.titles = await d3.csv(titles);
   },
 };
 </script>
