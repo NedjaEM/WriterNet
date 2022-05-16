@@ -88,7 +88,7 @@
             Where were they published
           </div>
           <v-row>
-            <v-col style="max-width: 12%; font-size: 15px; color: #e99f4c; font-weight: bold">
+            <v-col style="max-width: 15%; font-size: 15px; color: #e99f4c; font-weight: bold">
               US
             </v-col>
             <v-col>
@@ -167,7 +167,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
               UK
             </v-col>
             <v-col>
@@ -198,7 +198,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
               Egypt
             </v-col>
             <v-col>
@@ -229,7 +229,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
               Canada
             </v-col>
             <v-col>
@@ -260,7 +260,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 12%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
               Qatar
             </v-col>
             <v-col>
@@ -319,7 +319,7 @@
         class="main__graphic"
         outlined
         color="transparent"
-        v-if="currStep === '9'"
+        v-if="currStep === '6'"
       >
       </v-card>
       <Scrollama
@@ -483,7 +483,17 @@ h1 {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.intro,
+.intro
+{
+  padding: 30vh;
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #e99f4c !important;
+}
+
 .outro {
   padding: 30vh;
   text-align: center;
@@ -492,6 +502,7 @@ h1 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #e99f4c !important;
+  margin-top: 20%;
 }
 
 // additions and overrides of DOM elements vue-scrollama sets up

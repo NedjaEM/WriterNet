@@ -33,7 +33,7 @@
         <template v-for="(n, i) in past_year_titles.slice().reverse()">
           <v-col :key="i" cols="auto">
             <v-card color="transparent">
-               <v-img
+              <v-img
                 width="20vh"
                 height="30vh"
                 color="gray"
@@ -61,7 +61,7 @@ export default {
     "authors_td",
     "titles_td",
     "past_year_titles",
-    "events_year"
+    "events_year",
   ],
 
   watch: {
