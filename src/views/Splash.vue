@@ -82,13 +82,18 @@
         v-if="currStep === '9'"
       >
         <v-col style="max-height = 100%;">
-          <div
-            style=" font-size: 25px; color: #e99f4c; text-align: center"
-          >
+          <div style="font-size: 25px; color: #e99f4c; text-align: center">
             Where were they published
           </div>
           <v-row>
-            <v-col style="max-width: 15%; font-size: 15px; color: #e99f4c; font-weight: bold">
+            <v-col
+              style="
+                max-width: 15%;
+                font-size: 15px;
+                color: #e99f4c;
+                font-weight: bold;
+              "
+            >
               US
             </v-col>
             <v-col>
@@ -167,7 +172,14 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col
+              style="
+                max-width: 15%;
+                color: #e99f4c;
+                font-size: 15px;
+                font-weight: bold;
+              "
+            >
               UK
             </v-col>
             <v-col>
@@ -198,7 +210,14 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col
+              style="
+                max-width: 15%;
+                color: #e99f4c;
+                font-size: 15px;
+                font-weight: bold;
+              "
+            >
               Egypt
             </v-col>
             <v-col>
@@ -229,7 +248,14 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col
+              style="
+                max-width: 15%;
+                color: #e99f4c;
+                font-size: 15px;
+                font-weight: bold;
+              "
+            >
               Canada
             </v-col>
             <v-col>
@@ -260,7 +286,14 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col style="max-width: 15%; color: #e99f4c; font-size: 15px; font-weight: bold">
+            <v-col
+              style="
+                max-width: 15%;
+                color: #e99f4c;
+                font-size: 15px;
+                font-weight: bold;
+              "
+            >
               Qatar
             </v-col>
             <v-col>
@@ -299,8 +332,14 @@
         color="transparent"
         v-if="currStep === '7'"
       >
-        <v-img width="500px" src="../../public/timeline_logo.jpg"></v-img>
-        <v-btn to="/time" color="#fdf6f0"> Chronological View </v-btn>
+        <v-col>
+          <v-row>
+            <v-img width="500px" src="../../public/timeline_logo.jpg"></v-img>
+          </v-row>
+          <v-row>
+            <v-btn to="/time" color="#fdf6f0"> Chronological View </v-btn>
+          </v-row>
+        </v-col>
       </v-card>
       <v-card
         class="main__graphic"
@@ -308,12 +347,18 @@
         color="transparent"
         v-if="currStep === '8'"
       >
-        <v-img
-          width="400px"
-          height="400px"
-          src="../../public/network_logo.jpg"
-        ></v-img>
-        <v-btn to="/network" color="#fdf6f0"> Network View </v-btn>
+        <v-col>
+          <v-row style="max-height: 90%">
+            <v-img
+              width="400px"
+              height="400px"
+              src="../../public/network_logo.jpg"
+            ></v-img>
+          </v-row>
+          <v-row>
+            <v-btn to="/network" color="#fdf6f0"> Network View </v-btn>
+          </v-row>
+        </v-col>
       </v-card>
       <v-card
         class="main__graphic"
@@ -453,7 +498,6 @@ import Scrollama from "vue-scrollama";
 import titles from "../../public/titles_new.csv";
 import * as d3 from "d3";
 
-
 export default {
   name: "App",
   components: {
@@ -483,8 +527,7 @@ h1 {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.intro
-{
+.intro {
   padding: 30vh;
   text-align: center;
   font-size: 1.6rem;
