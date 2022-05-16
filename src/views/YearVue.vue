@@ -33,15 +33,31 @@
         <template v-for="(n, i) in past_year_titles.slice().reverse()">
           <v-col :key="i" cols="auto">
             <v-card color="transparent">
-              <v-img
-                width="20vh"
-                height="30vh"
-                color="gray"
-                :src="n['Book Cover']"
-              ></v-img>
-              <v-card-subtitle>
+              <v-row>
+                <v-col style="max-width: 20%">
+                  <v-img
+                    width="20vh"
+                    height="30vh"
+                    color="gray"
+                    :src="n['Book Cover']"
+                  ></v-img>
+                </v-col>
+                <v-col style="max-width: 80%">
+                  <v-card color="#f2ebe9" class="mr-8" outlined style="border: 1px solid #e99f4c">
+                    <v-card-subtitle style="font-weight: bold; color: #264143">
+                      {{ n.StoryPoint }}
+                    </v-card-subtitle>
+                    <v-card-subtitle style="font-weight: bold; color: #264143">
+                      {{ n.StoryPoint2 }}
+                    </v-card-subtitle>
+                  </v-card>
+                </v-col>
+              </v-row>
+              <v-card-title style="color: #264143"> Abstract </v-card-title>
+              <v-card-subtitle style="color: #264143">
                 {{ n.Abstract }}
               </v-card-subtitle>
+              <v-chip>chip1</v-chip>
             </v-card>
           </v-col>
         </template>
