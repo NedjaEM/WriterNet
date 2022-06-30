@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <h1 style="color: #e99f4c">
-      A Story on stories written in Arabic by women
+      A REPOSITORY OF BOOKS BY WOMEN FROM THE ARAB WORLD
     </h1>
-    <h1 style="color: #e99f4c">and translated (or not) to English</h1>
+    <h1 style="color: #e99f4c">TRANSLATED TO ENGLISH</h1>
     <h2 class="intro" style="color: #de5499">Scroll to read more</h2>
     <div class="main">
       <v-card
@@ -348,7 +348,7 @@
         v-if="currStep === '8'"
       >
         <v-col>
-          <v-row style="max-height: 90%">
+          <v-row style="max-height=100%">
             <v-img
               width="400px"
               height="400px"
@@ -366,6 +366,9 @@
         color="transparent"
         v-if="currStep === '6'"
       >
+        These ideas have led me to ask more questions and think of tools that
+        might help answer these questions. And this is how this project was
+        born:
       </v-card>
       <Scrollama
         :offset="0.5"
@@ -373,13 +376,12 @@
         class="main__scrollama"
       >
         <div class="step" data-step-no="1">
-          After moving to the US from Tunisia, I have started noticing how
-          little books written in Arabic are translated into English, let alone
-          books written by women in Arabic. To my surprise, I kept finding out
-          that some of the books that I have truly enjoyed reading were never
-          translated into English. In fact, I have not found one single book
-          that was written by a Tunisian woman that has been translated into
-          English.
+          After moving to the US, I noticed how infrequently books written in
+          Arabic are translated into English, especially books written by women.
+          I was surprised to discover that the books that I enjoyed were never
+          translated into English and remain inaccessible to my friends and
+          peers in the US. In fact, I have not found one single book that was
+          written by a Tunisian woman that has been translated into English.
         </div>
         <div class="step" data-step-no="2">
           So.. I wanted to explore the reasons why this has happened and I
@@ -395,7 +397,7 @@
         </div>
         <div class="step" data-step-no="4">
           My data collection and exploration, start from Amal Amireh’s
-          well-articulated idea idea that Arab women’s novels are often
+          well-articulated idea that Arab women’s novels are often
           presented “as sociological and anthropological texts that reflect the
           reality of Islam and the Arab world and “lift the veil” from what a
           reviewer called “unimaginable world of Arab women” (Amireh)
@@ -404,10 +406,8 @@
           Alexa Firat emphasizes this idea.
         </div>
         <div class="step" data-step-no="6">
-          These ideas have led me to ask more questions and think of tools that
-          might help answer these questions. And this is how this project was
-          born: an experimental digital repository about women writers from the
-          MENA region and their books that were translated into English. The
+          an experimental digital repository about women writers from the Arab world
+          and their books that were translated into English. The
           repository can best be explored in two ways: a chronological
           experience and a relational experience.
         </div>
@@ -445,7 +445,7 @@
               height="200px"
               width="200px"
               class="mx-auto"
-              src="../../public/outro/timeline_logo.jpg"
+              src="../../public/outro/network_logo.jpg"
             >
             </v-img>
           </v-col>
@@ -458,7 +458,7 @@
               height="200px"
               width="200px"
               class="mx-auto"
-              src="../../public/outro/network_logo.jpg"
+              src="../../public/outro/timeline_logo.jpg"
             >
             </v-img>
           </v-col>

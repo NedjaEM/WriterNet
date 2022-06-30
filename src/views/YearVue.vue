@@ -43,7 +43,13 @@
                   ></v-img>
                 </v-col>
                 <v-col style="max-width: 80%">
-                  <v-card color="#f2ebe9" class="mr-8" outlined style="border: 1px solid #e99f4c">
+                  <v-card
+                    color="#f2ebe9"
+                    class="mr-8"
+                    outlined
+                    style="border: 1px solid #e99f4c"
+                  >
+                    <v-icon color="#e99f4c"> mdi-lightbulb </v-icon>
                     <v-card-subtitle style="font-weight: bold; color: #264143">
                       {{ n.StoryPoint }}
                     </v-card-subtitle>
@@ -57,7 +63,11 @@
               <v-card-subtitle style="color: #264143">
                 {{ n.Abstract }}
               </v-card-subtitle>
-              <v-chip>chip1</v-chip>
+              <v-chip>{{ n["Tag 1"] }}</v-chip>
+              <v-chip>{{ n["Tag 2"] }}</v-chip>
+              <v-chip>{{ n["Tag 3"] }}</v-chip>
+              <v-chip>{{ n["Tag 4"] }}</v-chip>
+              <v-chip>{{ n["Tag 5"] }}</v-chip>
             </v-card>
           </v-col>
         </template>
