@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <h1 style="color: #e99f4c">
+    <h1 style="color: #e99f4c" class="text-h4">
       A REPOSITORY OF BOOKS BY WOMEN FROM THE ARAB WORLD
     </h1>
-    <h1 style="color: #e99f4c">TRANSLATED TO ENGLISH</h1>
-    <h2 class="intro" style="color: #de5499">Scroll to read more</h2>
-    <div class="main">
+    <h1 style="color: #e99f4c" class="text-h4">TRANSLATED TO ENGLISH</h1>
+    <h2 style="color: #de5499" class=" intro text-h6">Scroll to read more</h2>
+    <div class="main text-body1">
       <v-card
         class="main__graphic"
         outlined
@@ -551,6 +551,7 @@ h1 {
 // additions and overrides of DOM elements vue-scrollama sets up
 .main {
   display: flex;
+  
   .main__graphic {
     flex: 1;
     height: 80vh;

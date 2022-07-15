@@ -42,14 +42,13 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Resources.vue')
   }
-
 ]
 
 const router = new VueRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     // always scroll to top
-    return { top: 0 }
+    return { x: 0, y: 0 };
   },
 })
 

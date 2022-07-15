@@ -187,7 +187,7 @@
 </template>
 
 <script>
-import books from "../../public/books.csv";
+import books from "../../public/titles_new.csv";
 import * as d3 from "d3";
 
 export default {
@@ -208,18 +208,18 @@ export default {
     this.books.forEach((element) => {
       dim_set_one.add(element.Author);
       dim_set_one.add(element.Translator);
-      dim_set_one.add(element["Publishing House"]);
+      dim_set_one.add(element["Publisher"]);
       dim_set.add({ el: element.Author, type: "author" });
       dim_set.add({ el: element.Translator, type: "translator" });
-      dim_set.add({ el: element["Publishing House"], type: "publisher" });
+      dim_set.add({ el: element["Publisher"], type: "publisher" });
       let el = new Object();
       el.source = element.Author;
-      el.target = element["Publishing House"];
+      el.target = element["Publisher"];
       el.edge = element["Title in English"];
       network_data.push(el);
       let el1 = new Object();
       el1.source = element.Translator;
-      el1.target = element["Publishing House"];
+      el1.target = element["Publisher"];
       el1.edge = element["Title in English"];
       network_data.push(el1);
     });
@@ -385,18 +385,18 @@ export default {
       data.forEach((element) => {
         // dim_set.add({"val":element.Author,"type":"author"})
         // dim_set.add({"val":element.Translator,"type":"translator"})
-        // dim_set.add({"val":element["Publishing House"],"type":"publisher"})
+        // dim_set.add({"val":element["Publisher"],"type":"publisher"})
         dim_set.add(element.Author);
         dim_set.add(element.Translator);
-        dim_set.add(element["Publishing House"]);
+        dim_set.add(element["Publisher"]);
         let el = new Object();
         el.source = element.Author;
-        el.target = element["Publishing House"];
+        el.target = element["Publisher"];
         el.edge = element["Title in English"];
         network_data.push(el);
         let el1 = new Object();
         el1.source = element.Translator;
-        el1.target = element["Publishing House"];
+        el1.target = element["Publisher"];
         el1.edge = element["Title in English"];
         network_data.push(el1);
 

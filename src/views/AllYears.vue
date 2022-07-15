@@ -30,7 +30,7 @@
     </v-row>
     <v-row align="center">
       <v-col class="d-flex" cols="8" sm="4" >
-        <v-select v-model="selectedAuthor" :items="past_year_titles" item-text="Author" item-value="Author" filled label="Filter by Writer"></v-select>
+        <v-select v-model="selectedAuthor" :items="filteredData" item-text="Author" item-value="Author" filled label="Filter by Writer"></v-select>
       </v-col>
       <v-col class="d-flex" cols="8" sm="4">
         <v-select :items="past_year_titles" item-text="Publisher" item-value="Publisher" filled label="Filter by Publisher"></v-select>
@@ -89,6 +89,12 @@ export default {
   mounted() {
     console.log(this.year_now);
   },
+  computed: {
+      filteredData(){
+          return this.past_year_titles.filter(year => year.Author === this.selectedAuthor)
+      }
+
+  },
   methods: {
     getTitles: function () {
       this.titles_year = [];
@@ -136,6 +142,7 @@ export default {
       });  
     },
     getEvents: function (i) {
+      this.events_year = []
       this.events.forEach((element) => {
         console.log(element)
         if (element["year"] === i) {
