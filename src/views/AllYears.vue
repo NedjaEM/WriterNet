@@ -91,7 +91,7 @@ export default {
   },
   computed: {
       filteredData(){
-          return this.past_year_titles.filter(year => year.Author === this.selectedAuthor)
+        return this.past_year_titles.filter(year => year.Author === this.selectedAuthor)
       }
 
   },

@@ -406,7 +406,7 @@
           Alexa Firat emphasizes this idea.
         </div>
         <div class="step" data-step-no="6">
-          an experimental digital repository about women writers from the Arab world
+          a digital repository about women writers from the Arab world
           and their books that were translated into English. The
           repository can best be explored in two ways: a chronological
           experience and a relational experience.
