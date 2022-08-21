@@ -99,7 +99,7 @@
             <v-col>
               <v-row>
                 <template v-for="(n, i) in titles">
-                  <template v-if="n.Place == 'US - New York'">
+                  <template v-if="n.Place.includes('US')">
                     <v-col :key="i" cols="auto">
                       <v-tooltip top>
                         <template v-slot:activator="{ on }">
@@ -185,7 +185,7 @@
             <v-col>
               <v-row>
                 <template v-for="(n, i) in titles">
-                  <template v-if="n.Place == 'UK - London'">
+                    <template v-if="n.Place.includes('UK')">
                     <v-col :key="i" cols="auto">
                       <v-tooltip top>
                         <template v-slot:activator="{ on }">
@@ -194,13 +194,61 @@
                               slot="activator"
                               v-on="on"
                               :class="hover ? 'iconclicked' : 'icon'"
+                              :id="'year' + n.Date"
                             >
                               mdi-book-open-variant
                             </v-icon>
                           </v-hover>
                         </template>
-                        <v-card>
-                          {{ n.Author }}
+                        <v-card :key="i" class="pa-1" outlined tile dark>
+                          <v-card-title class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n["Date of Translation"] }}
+                            </span>
+                          </v-card-title>
+                          <v-card-subtitle class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n.Author }}
+                            </span>
+                          </v-card-subtitle>
+
+                          <v-list-item class="font-weight-light">
+                            <v-list-item-avatar size="100" class="mb-auto">
+                              <v-img :src="n['Author Image']"> </v-img>
+                            </v-list-item-avatar>
+
+                            <v-list-item-content>
+                              <div class="overline mb-4"></div>
+                              <v-list-item-title
+                                class="
+                                  headline
+                                  font-weight-light
+                                  mb-3
+                                  text-wrap
+                                "
+                                style="word-break: normal"
+                                >{{ n["Title"] }}</v-list-item-title
+                              >
+                              <v-list-item-title
+                                class="headline mb-1 text-wrap"
+                                style="word-break: normal"
+                                >{{ n["Title in Arabic"] }}</v-list-item-title
+                              >
+                              <div>{{ n["Abstract"] }}</div>
+
+                              <v-list-item
+                                >Publishing House:
+                                {{ n["Publisher"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Translator: {{ n["Translator"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Publication Date:
+                                {{ n["Publication Year"] }}</v-list-item
+                              >
+                            </v-list-item-content>
+                          </v-list-item>
                         </v-card>
                       </v-tooltip>
                     </v-col>
@@ -223,7 +271,7 @@
             <v-col>
               <v-row>
                 <template v-for="(n, i) in titles">
-                  <template v-if="n.Place == 'Egypt - Cairo'">
+                  <template v-if="n.Place.includes('Egypt')">
                     <v-col :key="i" cols="auto">
                       <v-tooltip top>
                         <template v-slot:activator="{ on }">
@@ -232,13 +280,61 @@
                               slot="activator"
                               v-on="on"
                               :class="hover ? 'iconclicked' : 'icon'"
+                              :id="'year' + n.Date"
                             >
                               mdi-book-open-variant
                             </v-icon>
                           </v-hover>
                         </template>
-                        <v-card>
-                          {{ n.Author }}
+                        <v-card :key="i" class="pa-1" outlined tile dark>
+                          <v-card-title class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n["Date of Translation"] }}
+                            </span>
+                          </v-card-title>
+                          <v-card-subtitle class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n.Author }}
+                            </span>
+                          </v-card-subtitle>
+
+                          <v-list-item class="font-weight-light">
+                            <v-list-item-avatar size="100" class="mb-auto">
+                              <v-img :src="n['Author Image']"> </v-img>
+                            </v-list-item-avatar>
+
+                            <v-list-item-content>
+                              <div class="overline mb-4"></div>
+                              <v-list-item-title
+                                class="
+                                  headline
+                                  font-weight-light
+                                  mb-3
+                                  text-wrap
+                                "
+                                style="word-break: normal"
+                                >{{ n["Title"] }}</v-list-item-title
+                              >
+                              <v-list-item-title
+                                class="headline mb-1 text-wrap"
+                                style="word-break: normal"
+                                >{{ n["Title in Arabic"] }}</v-list-item-title
+                              >
+                              <div>{{ n["Abstract"] }}</div>
+
+                              <v-list-item
+                                >Publishing House:
+                                {{ n["Publisher"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Translator: {{ n["Translator"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Publication Date:
+                                {{ n["Publication Year"] }}</v-list-item
+                              >
+                            </v-list-item-content>
+                          </v-list-item>
                         </v-card>
                       </v-tooltip>
                     </v-col>
@@ -261,7 +357,7 @@
             <v-col>
               <v-row>
                 <template v-for="(n, i) in titles">
-                  <template v-if="n.Place == 'Canada - Toronto'">
+                   <template v-if="n.Place.includes('Egypt')">
                     <v-col :key="i" cols="auto">
                       <v-tooltip top>
                         <template v-slot:activator="{ on }">
@@ -270,13 +366,61 @@
                               slot="activator"
                               v-on="on"
                               :class="hover ? 'iconclicked' : 'icon'"
+                              :id="'year' + n.Date"
                             >
                               mdi-book-open-variant
                             </v-icon>
                           </v-hover>
                         </template>
-                        <v-card>
-                          {{ n.Author }}
+                        <v-card :key="i" class="pa-1" outlined tile dark>
+                          <v-card-title class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n["Date of Translation"] }}
+                            </span>
+                          </v-card-title>
+                          <v-card-subtitle class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n.Author }}
+                            </span>
+                          </v-card-subtitle>
+
+                          <v-list-item class="font-weight-light">
+                            <v-list-item-avatar size="100" class="mb-auto">
+                              <v-img :src="n['Author Image']"> </v-img>
+                            </v-list-item-avatar>
+
+                            <v-list-item-content>
+                              <div class="overline mb-4"></div>
+                              <v-list-item-title
+                                class="
+                                  headline
+                                  font-weight-light
+                                  mb-3
+                                  text-wrap
+                                "
+                                style="word-break: normal"
+                                >{{ n["Title"] }}</v-list-item-title
+                              >
+                              <v-list-item-title
+                                class="headline mb-1 text-wrap"
+                                style="word-break: normal"
+                                >{{ n["Title in Arabic"] }}</v-list-item-title
+                              >
+                              <div>{{ n["Abstract"] }}</div>
+
+                              <v-list-item
+                                >Publishing House:
+                                {{ n["Publisher"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Translator: {{ n["Translator"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Publication Date:
+                                {{ n["Publication Year"] }}</v-list-item
+                              >
+                            </v-list-item-content>
+                          </v-list-item>
                         </v-card>
                       </v-tooltip>
                     </v-col>
@@ -299,7 +443,7 @@
             <v-col>
               <v-row>
                 <template v-for="(n, i) in titles">
-                  <template v-if="n.Place == 'Qatar - Doha'">
+                 <template v-if="n.Place.includes('Qatar')">
                     <v-col :key="i" cols="auto">
                       <v-tooltip top>
                         <template v-slot:activator="{ on }">
@@ -308,13 +452,61 @@
                               slot="activator"
                               v-on="on"
                               :class="hover ? 'iconclicked' : 'icon'"
+                              :id="'year' + n.Date"
                             >
                               mdi-book-open-variant
                             </v-icon>
                           </v-hover>
                         </template>
-                        <v-card>
-                          {{ n.Author }}
+                        <v-card :key="i" class="pa-1" outlined tile dark>
+                          <v-card-title class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n["Date of Translation"] }}
+                            </span>
+                          </v-card-title>
+                          <v-card-subtitle class="text-right">
+                            <span class="title font-weight-light"
+                              >{{ n.Author }}
+                            </span>
+                          </v-card-subtitle>
+
+                          <v-list-item class="font-weight-light">
+                            <v-list-item-avatar size="100" class="mb-auto">
+                              <v-img :src="n['Author Image']"> </v-img>
+                            </v-list-item-avatar>
+
+                            <v-list-item-content>
+                              <div class="overline mb-4"></div>
+                              <v-list-item-title
+                                class="
+                                  headline
+                                  font-weight-light
+                                  mb-3
+                                  text-wrap
+                                "
+                                style="word-break: normal"
+                                >{{ n["Title"] }}</v-list-item-title
+                              >
+                              <v-list-item-title
+                                class="headline mb-1 text-wrap"
+                                style="word-break: normal"
+                                >{{ n["Title in Arabic"] }}</v-list-item-title
+                              >
+                              <div>{{ n["Abstract"] }}</div>
+
+                              <v-list-item
+                                >Publishing House:
+                                {{ n["Publisher"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Translator: {{ n["Translator"] }}</v-list-item
+                              >
+                              <v-list-item
+                                >Publication Date:
+                                {{ n["Publication Year"] }}</v-list-item
+                              >
+                            </v-list-item-content>
+                          </v-list-item>
                         </v-card>
                       </v-tooltip>
                     </v-col>
@@ -333,11 +525,11 @@
         v-if="currStep === '7'"
       >
         <v-col>
-          <v-row>
-            <v-img width="500px" src="../../public/timeline_logo.jpg"></v-img>
+           <v-row>
+            <v-btn to="/time" color="#fdf6f0"> Chronological View </v-btn>
           </v-row>
           <v-row>
-            <v-btn to="/time" color="#fdf6f0"> Chronological View </v-btn>
+            <v-img width="500px" src="../../public/timeline_logo.jpg"></v-img>
           </v-row>
         </v-col>
       </v-card>
@@ -348,15 +540,15 @@
         v-if="currStep === '8'"
       >
         <v-col>
+          <v-row>
+            <v-btn to="/network" color="#fdf6f0"> Network View </v-btn>
+          </v-row>
           <v-row style="max-height=100%">
             <v-img
               width="400px"
               height="400px"
               src="../../public/network_logo.jpg"
             ></v-img>
-          </v-row>
-          <v-row>
-            <v-btn to="/network" color="#fdf6f0"> Network View </v-btn>
           </v-row>
         </v-col>
       </v-card>
@@ -545,7 +737,7 @@ h1 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #e99f4c !important;
-  margin-top: 20%;
+  margin-top: 80%;
 }
 
 // additions and overrides of DOM elements vue-scrollama sets up
